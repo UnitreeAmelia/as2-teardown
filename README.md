@@ -2,6 +2,14 @@
 
 AS2 四足机器人的浏览器端虚拟拆装演示。给机械、机电、机器人方向的教学和展示用：不用装软件、不用连真机，打开网页就能把整机拆开看结构。
 
+```
+git clone git@github.com:UnitreeAmelia/as2-teardown.git
+cd as2-teardown && python3 -m http.server 8125
+# 打开 http://127.0.0.1:8125/
+```
+
+> 必须用 HTTP 服务打开，双击 `index.html` 不行 —— ES module 与 STL 加载受 `file://` 的跨域限制。
+
 ## 它是什么
 
 17 个刚体、12 个驱动关节的完整装配模型，三种模式：
@@ -28,6 +36,8 @@ AS2 四足机器人的浏览器端虚拟拆装演示。给机械、机电、机�
 ```bash
 python3 -m http.server 8125
 ```
+
+**想发给别人看**：这是个纯静态站，仓库 Settings → Pages 里把 Source 选成 `main` / `/ (root)`，存盘后几十秒就能拿到公网链接。`Three.js` 与 STL 都是相对路径，托管环境下不用改任何东西。
 
 ## 数据来源
 
