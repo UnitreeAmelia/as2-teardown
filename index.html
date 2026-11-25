@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#eef1f5" />
+<title>AS2 结构拆装实训 · 虚拟拆装</title>
+<link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js"
+  }
+}
+</script>
+</head>
+<body data-mode="explode">
+
+<div class="layout">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">AS2</div>
+      <div class="brand-lines">
+        <h1>结构拆装实训</h1>
+        <p>Virtual Teardown · 17 件 / 12 DOF</p>
+      </div>
+    </div>
+
+    <nav class="modes" id="modes">
+      <button class="mode is-on" data-mode="explode">爆炸视图</button>
+      <button class="mode" data-mode="train">拆装实训</button>
+      <button class="mode" data-mode="free">自由探索</button>
+    </nav>
+
+    <div class="tools">
+      <div class="tool-group" id="views">
+        <button class="chip" data-view="front" title="主视图（正前方）">主视</button>
+        <button class="chip" data-view="side" title="侧视图（正侧方）">侧视</button>
+        <button class="chip" data-view="top" title="俯视图（正上方）">俯视</button>
+        <button class="chip" data-view="iso" title="等轴测">等轴</button>
+      </div>
+      <div class="tool-group">
+        <button class="chip" id="btn-joints" aria-pressed="false" title="显示 12 个关节的转轴">关节标注</button>
+        <button class="chip" id="btn-dims" aria-pressed="false" title="标注轴距、轮距、连杆长度">尺寸</button>
+        <button class="chip" id="btn-ghost" aria-pressed="false" title="其余零件半透明，便于看装配关系">透视</button>
+      </div>
+    </div>
+  </header>
+
+  <aside class="panel panel-left">
+    <div class="panel-head">
+      <span>装配树</span>
+      <span class="panel-head-meta" id="tree-meta">17 件</span>
+    </div>
+    <div class="tree" id="tree"></div>
+    <div class="panel-foot">
+      <div class="stat-row"><span>自由度</span><b>12 DOF</b></div>
+      <div class="stat-row"><span>整机质量</span><b>20.70 kg</b></div>
+      <div class="stat-row"><span>数据来源</span><b>官方 MJCF</b></div>
+    </div>
+  </aside>
+
+  <main class="stage-wrap">
+    <canvas id="stage"></canvas>
+    <svg class="anno" id="anno" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"></svg>
+    <div class="stage-vignette"></div>
+    <div class="loading" id="loading">
+      <div class="loading-bar"><i id="loading-fill"></i></div>
+      <p id="loading-text">正在载入 AS2 网格…</p>
+    </div>
+    <div class="hover-tip" id="hover-tip"></div>
+    <div class="toast" id="toast"></div>
+  </main>
+
+  <aside class="panel panel-right">
+    <div class="inspector" id="inspector"></div>
+  </aside>
+
+  <footer class="dock">
+    <div class="dock-info" id="dock-info"></div>
+    <div class="dock-control" id="dock-control"></div>
+  </footer>
+
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

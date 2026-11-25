@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# 调试产物
+_shots/
+_shot.sh
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
